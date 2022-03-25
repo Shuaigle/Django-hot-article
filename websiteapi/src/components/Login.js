@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export default function SignIn() {
-	const history = useNavigate()
+	let history = useNavigate()
 	const initialFormData = Object.freeze({
 		username: '',
 		password: '',
@@ -62,9 +62,9 @@ export default function SignIn() {
 			.then((res) => {
 				localStorage.setItem('access_token', res.data.access);
 				localStorage.setItem('refresh_token', res.data.refresh);
-				axiosInstance.defaults.headers['Authorization'] =
+				axiosInstance.defaults.headers.common['Authorization'] =
 					'JWT ' + localStorage.getItem('access_token')
-				history('/')
+				history('/', { replace: true })
 				console.log(res)
 				console.log(res.data)
 			})

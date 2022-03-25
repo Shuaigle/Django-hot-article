@@ -1,0 +1,2 @@
+{"username":["This field is required."],"password":["This field is required."]}--_curl_--"username": ”admin”” > -H content-type:
+--_curl_-- "password": ”admin”” > -H content-type:
